@@ -1,3 +1,14 @@
+/**
+ * Shows or updates a delivery map with markers.
+ * @param {string} elementId - The ID of the HTML element where the map will be rendered.
+ * @param {Array<Object>} markers - An array of marker objects. Each object should have properties:
+ *                                  {number} x - The longitude of the marker.
+ *                                  {number} y - The latitude of the marker.
+ *                                  {string} description - The popup content for the marker.
+ *                                  {boolean} [showPopup] - Whether to show the popup initially.
+ * @returns {undefined}
+ * @throws {Error} Throws an error if no element with the given ID is found.
+ */
 ﻿(function () {
     var tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     var tileAttribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
