@@ -1,3 +1,15 @@
+/**
+ * Initializes and manages push notification subscriptions for a Blazor application.
+ * This method sets up the blazorPushNotifications object on the window, which contains
+ * a method to request push notification subscriptions.
+ * 
+ * @returns {Object} An object with the following structure:
+ *   - url {string}: The endpoint URL for the push subscription
+ *   - p256dh {string}: The public key for the push subscription in base64 format
+ *   - auth {string}: The auth secret for the push subscription in base64 format
+ * 
+ * @throws {Error} If there's an error during the subscription process that isn't a NotAllowedError
+ */
 ﻿(function () {
     // Note: Replace with your own key pair before deploying
     const applicationServerPublicKey = 'BLC8GOevpcpjQiLkO7JmVClQjycvTCYWm6Cq_a7wJZlstGTVZvwGFFHMYfXt6Njyvgx_GlXJeo5cSiZ1y4JOx1o';
