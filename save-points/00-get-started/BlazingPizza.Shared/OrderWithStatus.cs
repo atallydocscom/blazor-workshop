@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
+using System.Security.Cryptography;
+using System.Text.Json.Serialization;
 using BlazingPizza.ComponentsLibrary.Map;
-
 
 namespace BlazingPizza;
 
@@ -70,9 +70,18 @@ public class OrderWithStatus
     {
         ArgumentNullException.ThrowIfNull(order.DeliveryLocation);
         // Random but deterministic based on order ID
-        var rng = new Random(order.OrderId);
-        var distance = 0.01 + rng.NextDouble() * 0.02;
-        var angle = rng.NextDouble() * Math.PI * 2;
+        var rng = RandomNumberGenerator.Create();
+        var buffer = new byte[8];
+
+        rng.GetBytes(buffer);
+        var distanceFactor = BitConverter.ToUInt32(buffer, 0) / (double)UInt32.MaxValue;
+        // ensure a deterministic seed based range for the distance
+        var distance = 0.01 + distanceFactor * 0.02;
+
+        rng.GetBytes(buffer);
+        var angleFactor = BitConverter.ToUInt32(buffer, 0) / (double)UInt32.MaxValue;
+        var angle = angleFactor * Math.PI * 2;
+
         var offset = (distance * Math.Cos(angle), distance * Math.Sin(angle));
         return new LatLong(order.DeliveryLocation.Latitude + offset.Item1, order.DeliveryLocation.Longitude + offset.Item2);
     }
