@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 using BlazingPizza.ComponentsLibrary.Map;
-
+using System.Security.Cryptography; // Added for secure random number generation
 
 namespace BlazingPizza;
 
@@ -69,10 +69,16 @@ public class OrderWithStatus
     private static LatLong ComputeStartPosition(Order order)
     {
         ArgumentNullException.ThrowIfNull(order.DeliveryLocation);
-        // Random but deterministic based on order ID
-        var rng = new Random(order.OrderId);
-        var distance = 0.01 + rng.NextDouble() * 0.02;
-        var angle = rng.NextDouble() * Math.PI * 2;
+        // Secure random but deterministic based on order ID
+        var orderIdBytes = BitConverter.GetBytes(order.OrderId);
+        var randomBytes = new byte[16]; // for double representation
+        using (var rng = RandomNumberGenerator.Create())
+        {
+            rng.GetBytes(randomBytes);
+        }
+
+        var distance = 0.01 + BitConverter.ToDouble(randomBytes, 0) * 0.02;
+        var angle = BitConverter.ToDouble(randomBytes, 8) * Math.PI * 2;
         var offset = (distance * Math.Cos(angle), distance * Math.Sin(angle));
         return new LatLong(order.DeliveryLocation.Latitude + offset.Item1, order.DeliveryLocation.Longitude + offset.Item2);
     }
