@@ -1,3 +1,10 @@
+/**
+ * Requests a push notification subscription for the current user.
+ * @returns {Object|undefined} An object containing subscription details if successful, undefined otherwise.
+ * @returns {string} url - The endpoint URL for the push subscription.
+ * @returns {string} p256dh - The public key for the push subscription, base64 encoded.
+ * @returns {string} auth - The auth secret for the push subscription, base64 encoded.
+ */
 ﻿(function () {
     // Note: Replace with your own key pair before deploying
     const applicationServerPublicKey = 'BLC8GOevpcpjQiLkO7JmVClQjycvTCYWm6Cq_a7wJZlstGTVZvwGFFHMYfXt6Njyvgx_GlXJeo5cSiZ1y4JOx1o';
