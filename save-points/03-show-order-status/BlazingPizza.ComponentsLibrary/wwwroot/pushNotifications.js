@@ -1,3 +1,10 @@
+/**
+ * Requests push notification subscription for the current user.
+ * This method attempts to subscribe the user to push notifications using the browser's Push API.
+ * It first checks for an existing subscription and creates a new one if none exists.
+ * @returns {Promise<Object|undefined>} A promise that resolves to an object containing the subscription details (url, p256dh, auth) if successful, or undefined if subscription fails or is denied.
+ * @throws {Error} Throws an error if there's an issue during the subscription process (except for NotAllowedError).
+ */
 ﻿(function () {
     // Note: Replace with your own key pair before deploying
     const applicationServerPublicKey = 'BLC8GOevpcpjQiLkO7JmVClQjycvTCYWm6Cq_a7wJZlstGTVZvwGFFHMYfXt6Njyvgx_GlXJeo5cSiZ1y4JOx1o';

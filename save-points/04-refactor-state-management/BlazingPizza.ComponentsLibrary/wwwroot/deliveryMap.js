@@ -1,3 +1,10 @@
+/**
+ * Shows or updates a map with markers on a specified HTML element.
+ * @param {string} elementId - The ID of the HTML element where the map will be displayed.
+ * @param {Array<Object>} markers - An array of marker objects, each containing x (longitude), y (latitude), description, and optionally showPopup.
+ * @returns {undefined} This method does not return a value.
+ * @throws {Error} Throws an error if no element with the specified ID is found.
+ */
 ﻿(function () {
     var tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     var tileAttribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';

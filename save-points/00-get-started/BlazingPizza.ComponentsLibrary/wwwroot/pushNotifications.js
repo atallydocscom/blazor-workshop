@@ -1,3 +1,13 @@
+/**
+ * Requests a push notification subscription for the current user.
+ * This method attempts to obtain an existing subscription or create a new one.
+ * @returns {Object|undefined} An object containing the subscription details if successful, undefined otherwise.
+ *                             The object includes:
+ *                             - url: The endpoint URL for the subscription
+ *                             - p256dh: The p256dh key in Base64 format
+ *                             - auth: The auth secret in Base64 format
+ * @throws {Error} If there's an error during the subscription process (except for NotAllowedError).
+ */
 ﻿(function () {
     // Note: Replace with your own key pair before deploying
     const applicationServerPublicKey = 'BLC8GOevpcpjQiLkO7JmVClQjycvTCYWm6Cq_a7wJZlstGTVZvwGFFHMYfXt6Njyvgx_GlXJeo5cSiZ1y4JOx1o';

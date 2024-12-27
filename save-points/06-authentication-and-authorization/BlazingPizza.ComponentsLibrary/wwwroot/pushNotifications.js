@@ -1,3 +1,23 @@
+/**
+ * Initializes and manages push notification subscriptions for a Blazor application.
+ * This function sets up the global blazorPushNotifications object with a method to request
+ * push notification subscriptions.
+ * 
+ * @returns {undefined} This function does not return a value directly, but it sets up
+ *                      a global object with a method that returns a Promise.
+ * 
+ * @example
+ * // The function is self-invoking, so it runs automatically when loaded.
+ * // To use the exposed functionality:
+ * const subscription = await window.blazorPushNotifications.requestSubscription();
+ * if (subscription) {
+ *   // Use the subscription object
+ *   console.log(subscription.url, subscription.p256dh, subscription.auth);
+ * }
+ * 
+ * @throws {Error} If there's an error during the push manager subscription process
+ *                 that is not a NotAllowedError.
+ */
 ﻿(function () {
     // Note: Replace with your own key pair before deploying
     const applicationServerPublicKey = 'BLC8GOevpcpjQiLkO7JmVClQjycvTCYWm6Cq_a7wJZlstGTVZvwGFFHMYfXt6Njyvgx_GlXJeo5cSiZ1y4JOx1o';

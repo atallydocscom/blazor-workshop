@@ -1,3 +1,11 @@
+/**
+ * Initializes and manages push notification subscriptions for a Blazor application.
+ * @returns {Object|undefined} An object containing subscription details if a new subscription is created, undefined otherwise.
+ * @property {string} url - The endpoint URL for the push subscription.
+ * @property {string} p256dh - The base64-encoded p256dh key for the subscription.
+ * @property {string} auth - The base64-encoded auth secret for the subscription.
+ * @throws {Error} If there's an error during the subscription process (except for NotAllowedError).
+ */
 ﻿(function () {
     // Note: Replace with your own key pair before deploying
     const applicationServerPublicKey = 'BLC8GOevpcpjQiLkO7JmVClQjycvTCYWm6Cq_a7wJZlstGTVZvwGFFHMYfXt6Njyvgx_GlXJeo5cSiZ1y4JOx1o';

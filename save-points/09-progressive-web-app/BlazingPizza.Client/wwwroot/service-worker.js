@@ -9,6 +9,11 @@ self.addEventListener('fetch', event => {
     return null;
 });
 
+/**
+ * Event listener for push notifications in a service worker
+ * @param {PushEvent} event - The push event object containing the notification data
+ * @returns {Promise<void>} A promise that resolves when the notification is shown
+ */
 self.addEventListener('push', event => {
     const payload = event.data.json();
     event.waitUntil(
