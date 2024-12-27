@@ -1,3 +1,7 @@
+/**
+ * Requests a push notification subscription for the current user.
+ * @returns {Promise<Object|undefined>} A promise that resolves to an object containing the subscription details (url, p256dh, auth) if a new subscription is created, or undefined if a subscription already exists or if permission is denied.
+ */
 ﻿(function () {
     // Note: Replace with your own key pair before deploying
     const applicationServerPublicKey = 'BLC8GOevpcpjQiLkO7JmVClQjycvTCYWm6Cq_a7wJZlstGTVZvwGFFHMYfXt6Njyvgx_GlXJeo5cSiZ1y4JOx1o';
